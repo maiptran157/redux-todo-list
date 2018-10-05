@@ -3,14 +3,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+// import { createStore, applyMiddleware } from 'redux';
 import { createStore, applyMiddleware } from 'redux';
-import reduxPromise from 'redux-promise';
+// import reduxPromise from 'redux-promise';
 import rootReducer from './reducers';
 import './assets/css/index.css';
 import App from './components/App';
+import rPormise from './middleware/r_promise';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(rootReducer, {}, applyMiddleware(reduxPromise));
+// const store = createStore(rootReducer, {}, applyMiddleware(reduxPromise));
+const store = createStore(rootReducer, {}, applyMiddleware(rPormise));
 
 ReactDOM.render(
     <Provider store={store}>
